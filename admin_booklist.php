@@ -1,14 +1,19 @@
 <?php
 // including the php file for index.php
 include_once 'index_php.php';
+// <!-- Including Header file  -->
+include_once 'header.php';
+if (!isset($_SESSION['email'])) {
+	header("location:login.php");
+	exit;
+}
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
 
-    <!-- Including Header file  -->
-  	<?php include 'header.php';?>
+
 
   <body class="center">
 
@@ -27,6 +32,7 @@ include_once 'index_php.php';
       						<div class="card-image"><img src="<?php echo htmlspecialchars($data['cover_image']); ?>"></div>
       						<h6><?php echo htmlspecialchars($data['name']); ?></h6>
       						 <div><?php echo htmlspecialchars($data['author_name']); ?></div>
+                   <div>Total books:-<?php echo htmlspecialchars($data['total_count']); ?></div>
       						 </div>
       					<div class="card-action right-align">
       						  <a href="Book_details.php?id=<?php echo $data['id'] ?>"><i class="material-icons">arrow_forward</i></a>
@@ -37,6 +43,22 @@ include_once 'index_php.php';
       		<?php }?>
       	</div>
       </div>
+      <?php
+$role = $_SESSION['usertype'];
+if ($role == 1) {
+	echo '<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red "href="add.php">
+  <i class="large material-icons ">add_circle</i>
+ </a>';
+}
+?>
+<!-- <button class="left"><a href="logout.php">Logout</a></button>
+ -->
+ <!--  <ul>
+    <li><a class="btn red"href="add.php">Book</a></li>
+  </ul> -->
+
+</div>
   </body>
 </html>
 

@@ -3,9 +3,9 @@
 //icluding connect.php file for connetion
 include_once 'connect.php';
 include_once 'header.php';
-$cover_image = $name = $author_name = " ";
+$cover_image = $name = $author_name = $count = " ";
 
-$errors = array('name' => '', 'author_name' => '', 'cover_image' => '');
+$errors = array('name' => '', 'author_name' => '', 'cover_image' => '', 'count' => '');
 
 if (isset($_GET['id'])) {
 
@@ -40,6 +40,9 @@ if (isset($_GET['id'])) {
 			if (empty($cover_image)) {
 				$errors['cover_image'] = "This field could not be empty!";
 			}
+			if (empty($_POST['count'])) {
+				$errors['count'] = 'Please enter the count of the books!';
+			}
 
 			//array filter function
 			if (array_filter($errors)) {
@@ -47,7 +50,7 @@ if (isset($_GET['id'])) {
 			} else {
 
 				//sql query to iupdate the data which user wants
-				$sql = "UPDATE  books SET name='$name' , author_name='$author_name' , description='$description' , cover_image='$cover_image' , pdf='$pdf' WHERE id='$id'";
+				$sql = "UPDATE  books SET name='$name' , author_name='$author_name' , description='$description' , cover_image='$cover_image' , pdf='$pdf', count='$count' WHERE id='$id'";
 
 				$result = mysqli_query($conn, $sql);
 				?>
@@ -113,6 +116,10 @@ if (isset($_GET['id'])) {
 
 			<input value="<?php echo $data['pdf']; ?>" type="text" name="pdf" id="pdf">
 			<br><br>
+			<label>Count:</label>
+			<br>
+			<input type="text" name="count" id="count" required>
+			<div class="red-text"><?php echo $errors['count']; ?></div>
 
 			<div class="center">
 				<input type="submit" name="Edit" value="Save Changes" class="btn brand z-depth-0">

@@ -3,8 +3,8 @@
 //including database connection file
 include_once 'connect.php';
 
-$cover_image = $name = $author_name = $count = " ";
-$errors = array('name' => '', 'author_name' => '', 'cover_image' => '', 'count' => '');
+$cover_image = $name = $author_name = $total_count = " ";
+$errors = array('name' => '', 'author_name' => '', 'cover_image' => '', 'total_count' => '');
 
 if (isset($_POST['submit'])) {
 
@@ -20,8 +20,8 @@ if (isset($_POST['submit'])) {
 	if (empty($_POST['author_name'])) {
 		$errors['author_name'] = "An author name is required!";
 	}
-	if (empty($_POST['count'])) {
-		$errors['count'] = 'Please enter the count of the books!';
+	if (empty($_POST['total_count'])) {
+		$errors['total_count'] = 'Please enter the count of the books!';
 	}
 
 	if (array_filter($errors)) {
@@ -30,14 +30,14 @@ if (isset($_POST['submit'])) {
 
 	//SQL query to insert the data
 	else {
-		$sql = "INSERT INTO books (name,author_name,description,cover_image , pdf,total_count) VALUES('" . $_POST["name"] . "','" . $_POST["author_name"] . "','" . $_POST["description"] . "','" . $_POST["cover_image"] . "','" . $_POST["pdf"] . "','" . $_POST["count"] . "')";
+		$sql = "INSERT INTO books (name,author_name,description,cover_image , pdf,total_count) VALUES('" . $_POST["name"] . "','" . $_POST["author_name"] . "','" . $_POST["description"] . "','" . $_POST["cover_image"] . "','" . $_POST["pdf"] . "','" . $_POST["total_count"] . "')";
 
 		$result = mysqli_query($conn, $sql);
 		?>
 		if (result) {
 			<script type="text/javascript">
 					alert("Book Added Successfully!");
-					window.location.href="index.php";
+					window.location.href="admin_booklist.php";
 			</script>
 			}
 	<?php
@@ -52,11 +52,6 @@ mysqli_close($conn);
 <!DOCTYPE html>
 <html>
  <head>
- 	<!-- <link rel="stylesheet" href=styles.css>
- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
    <?php include_once 'header.php';?>
    <title>Add Book</title>
 </head>
@@ -90,8 +85,8 @@ mysqli_close($conn);
 		<br><br>
 		<label>Count:</label>
 		<br>
-		<input type="text" name="count" id="count" required>
-		<div class="red-text"><?php echo $errors['count']; ?></div>
+		<input type="text" name="total_count" id="count" required>
+		<div class="red-text"><?php echo $errors['total_count']; ?></div>
 		<br><br>
 		<div class="center">
 		<input type="submit" name="submit" value="submit" class="btn brand z-depth-0">
@@ -99,6 +94,8 @@ mysqli_close($conn);
 	  </form>
 
     </section>
+
+
   </body>
 </html>
 

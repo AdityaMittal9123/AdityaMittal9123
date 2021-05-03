@@ -9,6 +9,7 @@ include_once 'index_php.php';
 
     <!-- Including Header file  -->
   	<?php include 'header.php';?>
+    <!-- <a href="logout.php" class="btn brand right">Logout</a> -->
 
   <body class="center">
 
