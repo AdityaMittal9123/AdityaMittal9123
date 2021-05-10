@@ -32,6 +32,7 @@ if (isset($_POST['submit'])) {
 			$_SESSION['usertype'] = $data['usertype'];
 			$_SESSION['email'] = $email;
 			$_SESSION['u_id'] = $data['u_id'];
+			$_SESSION['token'] = $data['token'];
 			header("location:admin_booklist.php");
 		} else {
 			$errors['error'] = "Incorrect password!";
@@ -46,7 +47,7 @@ if (isset($_POST['submit'])) {
 <body>
 		<div class="red-text"><?php echo $errors['email']; ?></div>
 		<div class="red-text"><?php echo $errors['error']; ?></div>
-		<div class="green-text success"><?php echo $_SESSION['msg']; ?></div>
+		<!-- <div class="green-text success"><?php echo $_SESSION['msg']; ?></div> -->
 
 	  <section class="container grey-text">
 	  	<div class="col m6 s12 l4">
@@ -70,7 +71,7 @@ if (isset($_POST['submit'])) {
 			<br><br>
 			<div class="center">
 				<input type="submit" name="submit" value="Login" class="btn brand z-depth-0">
-				<p class="black-text">Forgot Your password? No worry, click <a href="recover_pass.php"> here</a></p>
+				<p class="black-text">Forgot Your password? No worry, click <a href="recover_email.php"> here</a></p>
 			</div>
 
 		</form>

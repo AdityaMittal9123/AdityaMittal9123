@@ -4,15 +4,16 @@
 include_once 'connect.php';
 include_once 'header.php';
 
-if (isset($_POST['Mark'])) {
-	$marked = mysqli_real_escape_string($conn, $_REQUEST['marked']);
-	$sql = "INSERT INTO has_book (b_id,u_id,marked) VALUES('" . $row['b_id'] . "','" . $_SESSION['u_id'] . "','" . $marked . "')";
-	$s = mysqli_query($conn, $sql);
-	if ($s) {
-		?>
-      <script>alert('book successfully marked')</script><?php
-}
-}
+// if (isset($_POST['Mark'])) {
+// 	$marked = mysqli_real_escape_string($conn, $_REQUEST['marked']);
+// 	$sql = "INSERT INTO has_book (b_id,u_id,marked) VALUES('" . $row['b_id'] . "','" . $_SESSION['u_id'] . "','" . $marked . "')";
+// 	$s = mysqli_query($conn, $sql);
+// 	if ($s) {
+// 		?>
+      <!--  <script>alert('book successfully marked')</script> -->
+       <?php
+// }
+// }
 
 //check GET request id parameter
 if (isset($_GET['id'])) {

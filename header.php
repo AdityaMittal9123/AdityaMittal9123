@@ -1,16 +1,31 @@
 <?php
-include_once 'connect.php';
+//include_once 'connect.php';
 session_start();
 
 // if (isset($_POST['search'])) {
-// 		$str=$_POST['search'];
-// 		$sql="SELECT * FROM books WHERE name LIKE '%$str%' or author_name LIKE '%$search%";
-// 		$s_query=mysqli_query($conn,$sql);
-// 		$data=mysqli_fetch_all($s_query,MYSQLI_ASSOC);
-// 		echo "There are".$data."results";
-// 		if($data>0){
-// 			while
+// 	$str = $_POST['search'];
+// 	$str = preg_replace("#[^0-9a-z]#i", "", $str);
+// 	$sql = "SELECT * FROM books WHERE name LIKE '%$str%' or author_name LIKE '%$str%";
+// 	// var_dump($sql);
+// 	// die;
+// 	$s_query = mysqli_query($conn, $sql);
+// 	var_dump($s_query);
+// 	die;
+// 	$count = mysqli_num_rows($s_query);
+// 	// $data=mysqli_fetch_all($s_query,MYSQLI_ASSOC);
+// 	// echo "There are".$data."results";
+// 	// var_dump($count);
+// 	// die;
+// 	if ($count > 0) {
+// 		$data = mysqli_fetch_all($s_query, MYSQLI_ASSOC);
+// 		while ($data) {
+// 			echo $name;
+// 			echo $author_name;
+
 // 		}
+// 	} else {
+// 		echo "oops!";
+// 	}
 // }
 
 ?>
@@ -109,11 +124,4 @@ if (isset($_SESSION['email']) && $_SESSION['usertype'] == 1) {
                       </ul>";
 }
 ?>
-<form class="right" type="action" method="post">
-        <div class="input-field">
-          <input class="left" id="search" type="search" name="search"  required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-        </div>
-      </form>
-
 </nav>

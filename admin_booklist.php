@@ -1,25 +1,72 @@
 <?php
+require 'vendor/autoload.php';
+require 'core/bootstrap.php';
+require Router::load('routes.php')->direct(Request::uri());
 // including the php file for index.php
-include_once 'index_php.php';
+// include_once 'index_php.php';
 // <!-- Including Header file  -->
 include_once 'header.php';
-if (!isset($_SESSION['email'])) {
-	header("location:login.php");
-	exit;
-}
+// include_once 'search_sort.php';
+// if (!isset($_SESSION['email'])) {
+// 	header("location:login.php");
+// 	exit;
+// }
+
+// if (isset($_POST['submit'])) {
+// 	$str = mysqli_real_escape_string($conn, $_POST['str']);
+// 	$query = "SELECT * FROM books WHERE name LIKE '%$str%' OR author_name LIKE '%$str%'";
+// 	// var_dump($query);
+// 	// die;
+
+// 	$res = mysqli_query($conn, $query);
+// 	$da = mysqli_fetch_all($res, MYSQLI_ASSOC);
+// 	var_dump($da);
+// 	die;
+// 	if (mysqli_num_rows($res) > 0) {
+// 		echo "yes";
+// 	} else {
+// 		echo "no data found";
+// 	}
+// }
+
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
+</head>
+ <body class="center">
+    <form class='center' method='post'  style="width:300px">
+        <input type="textbox" name="str" required />
+        <input type="submit" name="submit" value="submit" />
+      </form>
+
+      <form class='center' action="admin_booklist.php" type='action' method='post'style="width:300px;">
+         <div class='input-field'>
+           <!--  Dropdown Trigger -->
+
+      <ul id = "dropdown" class = "dropdown-content">
+         <li><input type="asc" name="asc" value="asc"></li>
+         <li><input type="desc" name="desc" value="desc"></li>
+      </ul>
+
+      <a class = "btn dropdown-button" href = "#" data-activates = "dropdown">SORT BY-
+         <i class = "mdi-navigation-arrow-drop-down material-icons">expand_more</i></a>
+                              </div>
+              <!-- <form action="/admin_booklist.php">
+                <label for="sort">SORT BY</label>
+                <select name="sort" id="sort">
+                  <option value="asc">A-Z</option>
+                  <option value="desc">Z-A</option>
+                </select>
+                 <input type="submit" value="Submit">
+ -->
+              </form>
+
+ <!--  <body class="center"> -->
 
 
 
-  <body class="center">
-
-  </div>
-  </div>
-  	<h4 class="center black-text">Welcome!</h4>
 
 
       <div class="container">

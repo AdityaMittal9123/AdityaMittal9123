@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
 
 				if ($result) {
 					$subject = "Email activation";
-					$body = "Hi , $email Click on the link below to activate your account
+					$body = "Hi , $email <br> Click on the link below to activate your account
 			 			http://localhost/prep-2/emailverify.php?token=$token";
 
 					$sender_email = "From: adityamittal761@gmail.com";
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
 						$_SESSION['msg'] = $msg;
 						?>
 						<script type="text/javascript">
-							alert("You are Rregistered successfully. Please check your email to verify your account.");
+							alert("You are Rregistered successfully.<br> Please check your email($email) to verify your account.");
 							window.location.href="signup.php";
 						</script>
 						<?php

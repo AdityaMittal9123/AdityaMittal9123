@@ -32,9 +32,9 @@ $result = mysqli_fetch_all($s, MYSQLI_ASSOC);
       				<div class="card z-depth=0">
       					<div class="card-content">
       						<div class="card-image"style="height:180px"><img src="https://www.searchpng.com/wp-content/uploads/2019/02/Men-Profile-Image-715x657.png"></div>
-      						<div><a href="user_profile.php" class="waves-effect  brand center"><?php echo htmlspecialchars($r['u_id']); ?></a></div>
                   <ul>
-                 <li><a href="#"><i class="small material-icons">edit</i></a></li>
+      						<div><a href="user_profile.php" class="waves-effect  brand"><?php echo htmlspecialchars($r['email']); ?></a></div>
+
                  <li><a class="modal-trigger" data-target="terms"><i class="small material-icons">delete_account</i></a></li>
                </ul>
                <div class="modal" id="terms">
@@ -54,7 +54,7 @@ $result = mysqli_fetch_all($s, MYSQLI_ASSOC);
       				</div>
       			</div>
       			<div class="fixed-action-btn">
-  	<a class="btn-floating btn-large red "href="signup.php">
+  	<a class="btn-floating btn-large red "href="admin_signup.php">
     <i class="large material-icons ">add_circle</i>
 	</a>
 
