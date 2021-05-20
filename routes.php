@@ -1,0 +1,24 @@
+<?php
+$router->define([	
+	''=>'Controllers/common/addbook.php',
+	'index.php'=>'Controllers/common/home.php',
+	'index'=>'Controllers/common/home.php',
+	'reset_password'=>'Views/users/passwordResetForm.php',
+	'splashmsg'=>'Views/common/splashmsg.php',
+	'change_password'=>'Controllers/auth/updatePassword.php',
+	'send_reset_password_link'=>'Controllers/auth/sendResetPasswordLink.php',
+	'logout'=>'Controllers/auth/logout.php',
+	'passwordreset'=>'Controllers/auth/resetPassword.php',
+	'login'=>'Controllers/auth/login.php',
+	'registration'=>'Controllers/auth/registration.php',
+	'verify'=>'Controllers/auth/verifyRegistration.php',
+	'delusr'=>'Controllers/users/DeleteUser.php',
+	'editbook'=>'Controllers/books/EditBook.php',
+	'delbook'=>'Controllers/books/DeleteBook.php',
+	'addbook'=>'Controllers/books/AddBook.php',
+	'addadmin'=>'Controllers/users/AddAdmin.php',
+	'readbook'=>'Controllers/books/ReadBook.php',
+	'finishbook'=>'Controllers/books/FinishBook.php',
+	'likebook'=>'Controllers/books/LikeBook.php'
+]);
+?>
