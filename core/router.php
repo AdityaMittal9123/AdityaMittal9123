@@ -20,9 +20,11 @@ class Router {
 			return $this->routes[$uri];
 		}
 
-		throw new Exception('no path is found');
+		//throw new Exception('no path is found');
 	}
+	public function renderview() {
 
+	}
 }
 
 ?>
