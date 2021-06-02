@@ -10,7 +10,7 @@ class Mail {
 	public function sendResetPasswordMail($lnk,$email){
 		$GLOBALS['mail']->addAddress($email);
 		$GLOBALS['mail']->Subject  = 'Password Reset Link for eLibrary';
-		$GLOBALS['mail']->Body     = 'Hi '.$email.' ,<br/><br>Please<a href="'.$lnk.'"> click on this password reset link</a><br/>Enjoy. <br> <br/><br/>Thanks & Regards,<br> Atul Kumar';
+		$GLOBALS['mail']->Body     = 'Hi '.$email.' ,<br/><br>Please<a href="'.$lnk.'"> click on this password reset link</a><br/>Enjoy. <br> <br/><br/>Thanks & Regards,<br> Aditya Mittal';
 		
 		if(!$GLOBALS['mail']->send()) {
 			return FALSE;

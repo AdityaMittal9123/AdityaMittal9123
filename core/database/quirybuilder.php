@@ -12,16 +12,16 @@ class QueryBuilder {
 	}
 	public $column = [];
     public $values = [];
+	public function selectLimit($table,$offset,$limit) {
+		$statement = $this->pdo->prepare("select * from {$table}  limit {$offset},{$limit}");
+		$statement->execute();
+		return $statement->fetchAll(PDO::FETCH_OBJ);
+	}
 	public function selectAll($table) {
 		$statement = $this->pdo->prepare("select * from {$table}");
 		$statement->execute();
 		return $statement->fetchAll(PDO::FETCH_OBJ);
 	}
-	// public function select($table,$values,$email) {
-	// 	$select_stmt = $this->pdo->prepare("select * from {$table} where ${values}=$email");
-	// 	$select_stmt->execute();
-	// 	return $select_stmt;
-	// }
 	public function select($table, $column, $conditional)
      {
          $column = implode(',', $column);
@@ -57,11 +57,11 @@ class QueryBuilder {
     $sql = $this->pdo->prepare("INSERT INTO $table(${column})  VALUES (${values})");
 	return $sql;
 	}
-	public function search($table,$column,$values){
+	public function search($table,$column,$column2,$values){
 		$column = implode(',', $column);
-    	$values = implode(',', $values);
-		$s = $this->pdo->prepare("SELECT * FROM ${table} WHERE ${column}=${values}");
-		return $s->execute();
+    	$column2 = implode(',', $column2);
+		$s = $this->pdo->prepare("SELECT * FROM ${table} WHERE (${column}) LIKE '%".$values."%' OR (${column2}) LIKE '%".$values."%' ");
+		return $s;
 
 	}
 	

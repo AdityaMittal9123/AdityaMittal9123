@@ -26,7 +26,7 @@
 			<br><br>
 			<div class="center">
 				<input type="submit" name="submit" value="Login" class="btn brand z-depth-0">
-				<p class="black-text">Forgot Your password? No worry, click <a href="recover_email.php"> here</a></p>
+				<p class="black-text">Forgot Your password? No worry, click <a href="/recover_email"> here</a></p>
 			</div>
 
 		</form>

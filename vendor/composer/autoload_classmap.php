@@ -19,6 +19,7 @@ return array(
     'PHPMailer\\PHPMailer\\PHPMailer' => $baseDir . '/resources/PHPMailer/src/PHPMailer.php',
     'PHPMailer\\PHPMailer\\POP3' => $baseDir . '/resources/PHPMailer/src/POP3.php',
     'PHPMailer\\PHPMailer\\SMTP' => $baseDir . '/resources/PHPMailer/src/SMTP.php',
+    'PasswordMail' => $baseDir . '/PHPmailer.php',
     'QueryBuilder' => $baseDir . '/core/database/quirybuilder.php',
     'Request' => $baseDir . '/core/request.php',
     'Router' => $baseDir . '/core/router.php',

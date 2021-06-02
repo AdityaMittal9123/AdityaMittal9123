@@ -34,13 +34,14 @@ class Books extends QueryBuilder {
 
     }
     public function SearchBook($str){
-        $column = array('b_id','name', 'auth_name', 'description', 'pdf','total_count');
-        $values=[
-          ':name'=>"'".$str."'",
-          ':auth_name'=>"'".$str."'"];
-          $s=parent::search($this->table,$column, $values);
-          //$data=$s->fetch(PDO::FETCH_OBJ);
-          return $s;
+        $column = array('name');
+        $column2= array('author_name');
+          $s=parent::search($this->table,$column,$column2,$str);
+          $s->execute();
+          $data=$s->fetchAll(PDO::FETCH_OBJ);
+        //   var_dump($data);
+        //   die;
+          return $data;
     
     }
     public function DeleteBook($b_id){

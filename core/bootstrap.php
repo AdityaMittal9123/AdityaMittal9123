@@ -17,3 +17,7 @@ App::bind('users', new Users(
 App::bind('books', new Books(
 	Connection::make(App::get('config')['database'])
 ));
+App::bind('mail', new PasswordMail(
+	Connection::make(App::get('config')['database'])
+));
+

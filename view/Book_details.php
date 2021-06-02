@@ -1,28 +1,3 @@
-<?php
-
-
-
-//check GET request id parameter
-// if (isset($_GET['id'])) {
-// 	$id = mysqli_real_escape_string($conn, $_GET['id']);
-
-// 	//make sql
-// 	$sql = "SELECT * FROM books WHERE id=$id";
-
-// 	//get the query result
-// 	$output = mysqli_query($conn, $sql);
-
-// 	//fetch result in array format
-// 	$data = mysqli_fetch_assoc($output);
-
-// 	//closing the connection
-// 	mysqli_close($conn);
-
-// }
-
-
-?>
-
 <!DOCTYPE html>
 <html>
  <head>
@@ -46,18 +21,7 @@
  <a class="waves-effect waves-light btn right" href="editbook?b_id=<?php echo $Book_detail->b_id; ?>">Edit Book</a>
 
    <!-- select box for marking the book as issue, returnde or wishlist -->
-    <form action="#" method="POST" class="center hide-on-small-and-down">
-     <div class="input-field col s12 m6">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Issue Book</option>
-      <option value="2">Returned</option>
-      <option value="3">Wishlist</option>
-    </select>
-    <label>Mark Book as :-</label>
-  </div>
-  </form>
-
+    
 
     <!-- container for the book details -->
     <div class="row">
@@ -86,34 +50,30 @@
 
          <center><h4>Are you sure ?</h4>
           <p>This data will not be retrieved back after deleted once.</p>
-            <a href="delete.php?id=<?php echo $data['id'] ?>" class="modal-close btn">Sure</a>
+            <a href="delete.php?b_id=<?php echo $data['b_id'] ?>" class="modal-close btn">Sure</a>
             <a href="#" class="modal-close btn">Cancel</a>
          </center>
         </div>
        </div>
       </div>
     </div>
-    <!-- <form action="" method="POST"> -->
-    <!-- <p>
+    <form action="" method="POST">
       <span>Mark As:-</span>
       <label>
-        <input name="action" type="checkbox"/>
+        <input name="action" type="checkbox" value='reading'/>
         <span>Reading</span>
       </label>
       <label>
-        <input   name="action" type="checkbox"/>
+        <input name="action" type="checkbox" value="returned"/>
         <span>Retured</span>
       </label>
        <label>
-        <input  name="action" type="checkbox"/>
+        <input  name="action" type="checkbox" value="wishlist"/>
         <span>Wishlist</span>
       </label>
-      <button class="btn modal-trigger" type ="submit" name="upload" value="1" style="background-color: orange;max-width: 100px;">SAVE</button>
-       <select class="select" name="marked" type=checkbox >
-        <option>Completed</option>
-        <option>Issued</option>
-        <option>Wishlist</option>
-      </select>
-    </p> -->
+      <a href="profile?b_id=<?php echo $Book_detail->b_id; ?>"><input class="btn modal-trigger" type ="submit" name="mark" value="submit"></a>
+    </form>
+    
+
 </body>
 </html>

@@ -20,6 +20,7 @@ class ComposerStaticInit9b424175050f4e18f7293d34ac6254e5
         'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/../..' . '/resources/PHPMailer/src/PHPMailer.php',
         'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/../..' . '/resources/PHPMailer/src/POP3.php',
         'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/../..' . '/resources/PHPMailer/src/SMTP.php',
+        'PasswordMail' => __DIR__ . '/../..' . '/PHPmailer.php',
         'QueryBuilder' => __DIR__ . '/../..' . '/core/database/quirybuilder.php',
         'Request' => __DIR__ . '/../..' . '/core/request.php',
         'Router' => __DIR__ . '/../..' . '/core/router.php',

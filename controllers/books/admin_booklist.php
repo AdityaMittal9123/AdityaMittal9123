@@ -8,27 +8,34 @@ if (!isset($_SESSION['email'])) {
 		<?php
 	exit;
 }
-$datas=App::get('database')->selectAll('books');
-require './view/admin_booklist.php';
-
-// if($_POST['search']){
-//     $str = $_POST['search'];
-//     	$str = preg_replace("#[^0-9a-z]#i", "", $str);
-//         $search=App::get('books')->SearchBook($str);
-    	
-//         $data=$s->fetch(PDO::FETCH_OBJ);
-//         $count=$s->rowcount();
-//     	if ($count > 0) {
-//     		$data = mysqli_fetch_all($s_query, MYSQLI_ASSOC);
-//     		while ($data) {
-//     			echo $name;
-//     			echo $author_name;
-    
-//     		}
-//     	} else {
-//     		echo "oops!";
-//     	}
-//     }
-
+// if(isset($_POST['A-Z'])){
+// 	$sort = 'ASC';
+// 	// var_dump($_POST['A-Z']);
+// 	// die;
+// }
+// elseif(isset($_POST['Z-A'])){
+// 	$sort = 'DESC';
+// 	// var_dump($_POST['Z-A']);
+// 	// die; 
+// }
+// else{
+// 	$sort='default';
+// }
+if(isset($_GET['page'])){
+	$page = $_GET['page'];
+	}else{
+		$page=1;
+	}
+$limit=6;
+//$offset = ($page-1)*$limit;
+$offset=1;
+$datas=App::get('database')->selectLimit('books',$offset,$limit);
+$totaldata=App::get('database')->selectAll('books');
+$count=count($totaldata);
+$total_page=ceil($count/$limit);
+$_SESSION['total_page']=$total_page;
+$a=$_SESSION['total_page'];
+rsort($datas);
+require './view/admin_booklist.php';	
 
 ?>

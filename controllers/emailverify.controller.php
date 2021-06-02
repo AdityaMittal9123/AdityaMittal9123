@@ -1,19 +1,11 @@
 <?php
-include_once 'header.php';
-include_once 'connect.php';
-
 if (isset($_GET['token'])) {
 	$token = $_GET['token'];
-
-	$updatequery = "UPDATE users SET status='active' WHERE token='$token'";
-	$query = mysqli_query($conn, $updatequery);
-	// var_dump($query);
-	// die;
+	$update = App::get('users')->UpdateBook($token);
+	$query=$update->execute([':token'=>$token]);	
 	if ($query) {
 		if (isset($_SESSION['msg'])) {
 			?>
-			<!-- $_SESSION['msg'] = "Account Verified Successfully";
-			header("location:login.php"); -->
 			<script type="text/javascript">
 							alert("Account Verified Successfully");
 							window.location.href="login.php";

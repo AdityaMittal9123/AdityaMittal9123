@@ -9,7 +9,11 @@ $router->define([
 	'userlist'=> 'controllers/books/userlist.controller.php',
 	'profile'=> 'controllers/books/profile.controller.php',
 	'addbook'=> 'controllers/books/addbook.controller.php',
-	'editbook'=> 'controllers/books/edit.controller.php'
+	'editbook'=> 'controllers/books/edit.controller.php',
+	'search'=> 'controllers/books/search.controller.php',
+	'emailverify'=> 'controllers/emailverify.controller.php',
+	'recover_email'=> 'controllers/books/recover_email.controller.php',
+	'reset_password'=> 'controllers/books/reset_password.controller.php'
 
 	
 ]);

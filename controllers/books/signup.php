@@ -49,13 +49,17 @@ $passwordValidation = "/^(.{0,7}|[^a-z]*|[^\d]*)$/i";
         //checking for admin or reader
         if(isset($_SESSION['email']) && ($_SESSION['usertype']=='admin')){
             $usertype='admin';
+            //header("location:/userlist");
         }else{
             $usertype='reader';
+            //header("location:/login");
         }
         //$user->activate($email);
         $password = password_hash($password, PASSWORD_BCRYPT);
         App::get('users')->RegisterUser($_POST['email'],$password,$usertype,$token,'inactive');
-            header("location:/login");
+        App::get('mail')->sendMail($token);
+       
+          
     }else{
         echo "oops!";
     }

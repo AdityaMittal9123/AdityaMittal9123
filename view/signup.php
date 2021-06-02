@@ -95,7 +95,12 @@
 		<div class="center">
 		<input type="submit" name="submit" value="Register" class="btn brand z-depth-0">
 		</div>
-		<div class="center">registered already?<a class="" href="login.php">login here</a></div>
+		<?php
+		if(isset($_SESSION['email']) && $_SESSION['usertype']=='admin'){?>
+		<div class="center">Go to-<a class="" href="/userlist">userlist</a></div>
+		<?php }else{ ?> 
+			<div class="center">registered already?<a class="" href="/login">login here</a></div>
+	<?php	} ?>
 	</form>
 </div>
 	</div>

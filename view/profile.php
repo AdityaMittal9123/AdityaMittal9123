@@ -2,28 +2,28 @@
 <html>
 <body>
 <header>
-<center><h3 class="green-text">Welcome To Your Profile Page</h3></center>
+<center><h5 class="green-text">Welcome To Your Profile Page</h5></center>
 </header>
 	<div class="profilecontainer"style="width:400px;margin-left: 500px;padding-top: 20px;">
 		<div class="card z-depth=0">
 			<div class="card-content">
 				<div class="card-image"style="height:250px"><img src="https://www.searchpng.com/wp-content/uploads/2019/02/Men-Profile-Image-715x657.png"></div>
-				<h4 class="center"><?php echo htmlspecialchars($user->email); ?> </h4>
+				<h5 class="center"><?php echo htmlspecialchars($user->email);?></h5>
 				<a class="modal-trigger" data-target="terms"><i class="small material-icons red-text">delete_account</i></a>
 			</div>
 		</div>
 		<div class="grey-text">
 		<details>
-        <summary>Reading</summary>
-        <p class="black-text">put the book id here which the user is currently reading</p>
+        <summary><?php echo htmlspecialchars($hasbook->action); ?></summary>
+        <p class="black-text"><?php echo htmlspecialchars($userbook->name);?></p>
          </details>
      	<details>
         <summary>Returned</summary>
-        <p class="black-text">put the book id here which the user has returned</p>
+        <p class="black-text"><?php echo htmlspecialchars($user->email);?></p>
          </details>
         <details>
         <summary>Wishlist</summary>
-        <p class="black-text">put the book id here which the user is wish to read in future</p>
+        <p class="black-text"><?php echo htmlspecialchars($user->email);?></p>
     	</details>
 		</div>
 	</div>
