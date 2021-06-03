@@ -1,8 +1,9 @@
 <?php
 if (isset($_GET['token'])) {
 	$token = $_GET['token'];
-	$update = App::get('users')->UpdateBook($token);
-	$query=$update->execute([':token'=>$token]);	
+	$status = 'active';
+	$update = App::get('users')->activate($status,$token);
+	$query=$update->execute([':status'=>$status]);	
 	if ($query) {
 		if (isset($_SESSION['msg'])) {
 			?>

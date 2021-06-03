@@ -12,8 +12,8 @@ class QueryBuilder {
 	}
 	public $column = [];
     public $values = [];
-	public function selectLimit($table,$offset,$limit) {
-		$statement = $this->pdo->prepare("select * from {$table}  limit {$offset},{$limit}");
+	public function selectLimit($table,$sort,$offset,$limit) {
+		$statement = $this->pdo->prepare("select * from {$table} order by {$sort} limit {$offset},{$limit}");
 		$statement->execute();
 		return $statement->fetchAll(PDO::FETCH_OBJ);
 	}

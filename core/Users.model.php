@@ -41,16 +41,29 @@ class Users extends QueryBuilder {
 		return $select_stmt;
 		}
 
-	public function activate($token){
-		$column= array('status');
-		$values=[
+	public function activate($token,$status){
+		$column= ['status'];
+		$values = [
+				':status'=>"'".$status."'"
+			];
+		$i = 0;
+      	$upda = [];
+    	$queryArray = array_keys($values);
+      	while (isset($column[$i])) {
+        	$upda += [$column[$i] => $queryArray[$i]];
+        	$i++;
+    	}
+		// $upda = [
+		// 	':status'=>"'".$status."'"
+		// ];
+		$target=[
 			':token'=>"'".$token."'"];
-		parent::update($this->table,['status'=>'active'],'token',$token);	
+		parent::update($this->table,$upda,'token',$target);	
 			
 	}
 	public function updatePass($token,$password){
 		$column= array('password');
-		$values=[
+		$target=[
 			':token'=>"'".$token."'"];
 		parent::update($this->table,['password'=>$password],'token',$token);	
 			

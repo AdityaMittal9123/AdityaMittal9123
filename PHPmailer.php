@@ -11,21 +11,21 @@ class PasswordMail
         $this->mail->isSMTP();
         $this->mail->Host = 'ssl://smtp.gmail.com';
         $this->mail->SMTPAuth = true;
-        $this->mail->Username = 'yourmail@gmail.com';
-        $this->mail->Password = 'password';
+        $this->mail->Username = '';
+        $this->mail->Password = '';
         $this->mail->SMTPSecure = 'ssl';
         $this->mail->Port = 465;
     }
     public function sendMail($token)
     {
-        $this->mail->setFrom('yourmail@gmail.com', 'E_library');
+        $this->mail->setFrom('', 'E-library');
         $this->mail->addAddress($_POST['email']);
         $this->mail->Subject = "Verification link";
         $this->mail->isHTML(true);
         $this->mail->SMTPDebug = 0;
-        $this->base_url = "http://localhost/emailverify?token=${token}";
-        $this->mailContent = 'Hi, <br/> <br/> verification is required for your email address before we migrate to the application.
-            <br/> <br/> <a href ="'.$this->base_url.'">Click here to verify.</a>
+        $this->base_url = "http://localhost:8080/emailverify?token=${token}";
+        $this->mailContent = 'Hi "'.$_POST['email'].'", <br/> <br/>Please Click on the below link to verfiy your account.
+            <br/> <br/> <a href ="'.$this->base_url.'">verify acount.</a>
         ' ;
         $this->mail->Body = $this->mailContent;
         if (!$this->mail->send()) {
@@ -37,14 +37,14 @@ class PasswordMail
 
     public function resetMail($token)
     {
-        $this->mail->setFrom('yourmail@gmail.com', 'E_library');
+        $this->mail->setFrom('', 'E-library');
         $this->mail->addAddress($_POST['email']);
-        $this->mail->Subject = "New password link";
+        $this->mail->Subject = "password reset link";
         $this->mail->isHTML(true);
         $this->mail->SMTPDebug = 0;
-        $this->base_url = "http://localhost/reset_password?token=${token}";
-        $this->mailContent = 'Hi, <br/> <br/> we have sent a link to change your password. Kindly visit the link for updation.
-            <br/> <br/> <a href ="'.$this->base_url.'">Click here to reset your password.</a>
+        $this->base_url = "http://localhost:8080/reset_password?token=${token}";
+        $this->mailContent = 'Hi "'.$_POST['email'].'", <br/> <br/> we have sent a link below to change your password.
+            <br/> <br/> <a href ="'.$this->base_url.'">reset password.</a>
         ' ;
         $this->mail->Body = $this->mailContent;
         if (!$this->mail->send()) {

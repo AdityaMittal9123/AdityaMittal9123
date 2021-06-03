@@ -4,7 +4,7 @@
 </head>
  <body class="center">
  <!-- sorting functionality -->
-    <form action=" " method="post"  class="right">
+    <form action="/admin_booklist" method="post"  class="right">
     <div style="padding-top:0px;margin-right:250px;">
       <a class='dropdown-trigger btn ' href='#' data-target='dropdown2' style="height:28px">SORT BY</a>
         <ul id='dropdown2' class='dropdown-content'>
